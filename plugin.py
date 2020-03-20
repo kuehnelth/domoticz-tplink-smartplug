@@ -195,9 +195,9 @@ class TpLinkSmartPlugPlugin:
             err_code = realtime_result.get('err_code', 1)
 
             if err_code == 0:
-                Devices[2].Update(nValue=int(1 * realtime_result['current']), sValue=str(realtime_result['current']))
-                Devices[3].Update(nValue=int(1 * realtime_result['voltage']), sValue=str(realtime_result['voltage']))
-                Devices[4].Update(nValue=int(1 * realtime_result['power']), sValue=str(realtime_result['power']))
+                Devices[2].Update(nValue=int(0.001 * realtime_result['current_ma']), sValue=str(0.001 * realtime_result['current_ma']))
+                Devices[3].Update(nValue=int(0.001 * realtime_result['voltage_mv']), sValue=str(0.001 * realtime_result['voltage_mv']))
+                Devices[4].Update(nValue=int(0.001 * realtime_result['power_mw']), sValue=str(0.001 * realtime_result['power_mw']))
 
     def get_switch_state(self):
         cmd = {
