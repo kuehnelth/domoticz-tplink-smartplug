@@ -165,10 +165,11 @@ class TpLinkSmartPlugPlugin:
             sock.send(data)
             data = sock.recv(1024)
             Domoticz.Debug('data len: {}'.format(len(data)))
-            sock.close()
         except socket.error as e:
             Domoticz.Log('send command error: {}'.format(str(e)))
             raise
+        finally:
+            sock.close()
 
         try:
             json_resp = self._decrypt(data[4:])
